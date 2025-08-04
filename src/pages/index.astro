@@ -1,144 +1,302 @@
 ---
-// so fresh so clean
+//import '../styles/global.css';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<nav class="flex justify-center">
-			<a href="/"><h2 class="px-8 py-10">PotesDev</h2></a>
-			<a href="#projects"><h2 class="px-8 py-10">Projects</h2></a>
-			<a href="#challenges"><h2 class="px-8 py-10">Challenges</h2></a>
-			<a href="#contact"><h2 class="px-8 py-10">Contact</h2></a>
-		</nav>
-		<div class="flex justify-center">
-			<h1 class="px-8 ">About</h1>
-			<p>	
-				I don't know how to introduce myself exactly, but I'm making an effort to put in a paragraph the complexities of my life and the challenges I want to overcome, I'm disciplined, goal-oriented, and a little ambitious, and I want to make a difference in my life and the world, from bots and scripts to a massive  perspective change of things, I'm the perfect acolyte of the phrase "Practice makes the master"
-			</p>
-		</div>
-		<h1 class="flex px-8 py-4 justify-center justify-items-center" id="projects">Projects</h1>
-		<div class="flex px-8 py-3 grid grid-cols-4 gap-2">
-			<div class="max-w-sm rounded overflow-hidden shadow-lg">
-				<img class="w-full" src="/src/img/card-dao.png" alt="Dashboard">
-				<div class="px-6 py-4">
-				  <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/Ready-Player-Dao.git">Ready Player Dao</a></div>
-				  <p class="text-gray-700 text-base">
-					This was a summer project for Indexing.Co , a Desentralized Dashboard that leet the user see almost in real time the state of selected crypto currencies.  
-				  </p>
-				</div>
-				<div class="px-6 pt-4 pb-2">
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#BlockChain</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#JS</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#SQL</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#React</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Dashboard</span>
-				</div>
-			</div>
-			<div class="max-w-sm rounded overflow-hidden shadow-lg">
-				<img class="w-full" src="/src/img/card-compiler.png" alt="compiler">
-				<div class="px-6 py-4">
-				  <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/AssamblyToBin">Assambler to bin</a></div>
-				  <p class="text-gray-700 text-base">
-					This was part of many college proyects i have at my github , im just proud of it.   
-				  </p>
-				</div>
-				<div class="px-6 pt-4 pb-2">
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Assambler</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Interpreter</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Compiler</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Python</span>
-				</div>
-			</div>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>PotesDev Portfolio</title>
 
-			<div class="max-w-sm rounded overflow-hidden shadow-lg">
-				<img class="w-full" src="/src/img/card-web.png" alt="compiler">
-				<div class="px-6 py-4">
-				  <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/Django">Django App</a></div>
-				  <p class="text-gray-700 text-base">
-					This project its one of many experiences i have with Dajngo , in this case its a self containded blog , moderators and super admin can update their page with a secuence of clicks , no more dev requiered.   
-				  </p>
-				</div>
-				<div class="px-6 pt-4 pb-2">
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Django</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Blog</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Python</span>
-				</div>
-			</div>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        color: #00ffcc;
+        margin: 0;
+        padding: 0;
+      }
 
-			<div class="max-w-sm rounded overflow-hidden shadow-lg">
-				<img class="w-full" src="/src/img/card-text.png" alt="compiler">
-				<div class="px-6 py-4">
-				  <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/notipy">Notipy</a></div>
-				  <p class="text-gray-700 text-base">
-					This project its a self contained markdown editor as a Desktop app, like <a href="https://stackedit.io/">stackedit</a> but with open ia api for text generation   
-				  </p>
-				</div>
-				<div class="px-6 pt-4 pb-2">
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Python</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#TextEditor</span>
-				  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#OpenIA</span>
-				</div>
-			</div>
-		</div>
-		<h1 class="flex justify-center py-6" id="challenges">Challenges</h1>
-		<div class="px-8 py-6 padding-4">
-			
-			<ul>
-				<li>
-					<a href="https://github.com/ArachnePotes/training">Python Everyday</a>
-					<div class="w-full h-6 bg-gray-200 rounded-full dark:bg-gray-700">
-						<div class="h-6 bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full dark:bg-blue-500" style="width: 89%">89%</div>
-					  </div>
-				</li>
-				<li>
-					<a href="https://colab.research.google.com/drive/1Bldv69eC0VQESEOsrfQJPiuCmGqbKlm3?usp=sharing">Python everyday ColabNotebook</a>
-					<div class="w-full h-6 bg-gray-200 rounded-full dark:bg-gray-700">
-						<div class="h-6 bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full dark:bg-blue-500" style="width: 45%">45%</div>
-					  </div>
-				</li>
-				<li>
-					<a href="https://github.com/ArachnePotes/AssitantPy">Python all in one Desktop Assitant</a>
-					<div class="w-full h-6 bg-gray-200 rounded-full dark:bg-gray-700">
-						<div class="h-6 bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full dark:bg-blue-500" style="width: 20%">20%</div>
-					  </div>
-				</li>
-			</ul>
-		</div>
-		<h1 class="flex py-6 justify-center" id="contact">Contact me</h1>
-		<div class="flex justify-center bg-zinc-400" >
-			<form action="https://formsubmit.co/potesdev@gmail.com" method="post">
-				<div class="firstRow">
-					<div class="fullNameArea">
-						<p class="cardHead">name</p>
-						<input class="fullname" type="text" name="name">
-					</div>
+      h1, h2 {
+        text-align: center;
+        color: #00ffcc;
+      }
 
-					<div class="emailArea">
-						<p class="cardHead">EmailAdress</p>
-						<input class="email" type="email" name="email">
-					</div>
-				</div> 
+      nav {
+        background-color: #000;
+        border-bottom: 1px solid #00ffcc;
+        padding: 1rem 0;
+      }
 
-				<div class="messageArea">
-					<p class="cardHead">Message</p>
-					<textarea class="message" cols="90" rows="10" name="message"></textarea>
-				</div>
+      nav a {
+        color: #00ffcc;
+        text-decoration: none;
+        margin: 0 1rem;
+        transition: 0.3s;
+      }
 
-				<button type="submit">Send</button>
-			</form>
-		</div>
-		<footer class="flex py-6 justify-center">
-			<p class="px-6">follow me on</p>
-			<a class="px-6  hover:bg-blue-500 text-blue-700 hover:text-white" href="https://www.instagram.com/s.potes21/">Instragram</a>
-			<a class="px-6  hover:bg-blue-500 text-blue-700 hover:text-white" href="https://www.linkedin.com/in/santiago-potes-giraldo-868736234/">LinkedIn</a>
-			<a class="px-6  hover:bg-blue-500 text-blue-700 hover:text-white" href="https://github.com/SPotes22">github</a>
-		</footer>
-	</body>
+      nav a:hover {
+        color: #fff;
+        text-shadow: 0 0 10px #00ffcc;
+      }
+
+      p {
+        max-width: 70ch;
+        margin: 1rem auto;
+        line-height: 1.6;
+      }
+
+      .flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        padding: 2rem;
+      }
+
+      .max-w-sm {
+        background-color: #222;
+        color: #00ffcc;
+        border: 1px solid #00ffcc;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .font-bold {
+        font-weight: bold;
+      }
+
+      .text-xl {
+        font-size: 1.25rem;
+        color: #00ffff;
+      }
+
+      .inline-block {
+        display: inline-block;
+        background-color: #000;
+        border: 1px solid #00ffcc;
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+        margin: 0.2rem;
+        font-size: 0.75rem;
+      }
+
+      form input, form textarea {
+        background-color: #000;
+        color: #00ffcc;
+        border: 1px solid #00ffcc;
+        padding: 0.5rem;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      form button {
+        background-color: #00ffcc;
+        color: #000;
+        padding: 0.5rem 1rem;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      form button:hover {
+        background-color: #00ffaa;
+      }
+
+      footer {
+        background-color: #000;
+        padding: 2rem 0;
+        color: #00ffcc;
+        text-align: center;
+        border-top: 1px solid #00ffcc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/"><h2>PotesDev</h2></a>
+      <a href="#projects"><h2>Projects</h2></a>
+      <a href="#challenges"><h2>Challenges</h2></a>
+      <a href="#contact"><h2>Contact</h2></a>
+    </nav>
+
+    <section>
+      <h1>About</h1>
+      <p>
+        Hey! I'm Santiago, a goal-oriented full-stack developer passionate about solving real problems with code. I’m constantly building tools, automations, and experiments — from bots and APIs to secure file servers and dashboards. I believe in the phrase “Practice makes the master” and that’s how I grow every day.
+      </p>
+    </section>
+
+    <h1 id="projects">Projects</h1>
+    <div class="grid">
+      <!-- CARD 1 -->
+      <div class="max-w-sm shadow-lg">
+        <img src="/src/img/card-dao.png" alt="Dashboard" />
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/Ready-Player-Dao.git">Ready Player DAO</a></div>
+          <p>
+            Decentralized dashboard for Indexing.co — track crypto states in near real time. Built with React, SQL, and JS.
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block">#Blockchain</span>
+          <span class="inline-block">#React</span>
+          <span class="inline-block">#SQL</span>
+          <span class="inline-block">#JS</span>
+          <span class="inline-block">#Dashboard</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="max-w-sm shadow-lg">
+        <img src="/src/img/card-compiler.png" alt="Compiler" />
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/AssamblyToBin">Assembly to Binary</a></div>
+          <p>
+            A mini compiler/interpreter for converting assembly to binary. One of my favorite college projects.
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block">#Assembly</span>
+          <span class="inline-block">#Compiler</span>
+          <span class="inline-block">#Interpreter</span>
+          <span class="inline-block">#Python</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="max-w-sm shadow-lg">
+        <img src="/src/img/card-web.png" alt="Blog CMS" />
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/Django">No-code Blog CMS</a></div>
+          <p>
+            A Django-based blog CMS. Admins can update the entire site without touching code.
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block">#Django</span>
+          <span class="inline-block">#CMS</span>
+          <span class="inline-block">#Python</span>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="max-w-sm shadow-lg">
+        <img src="/src/img/card-text.png" alt="Markdown Editor" />
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/notipy">Notipy</a></div>
+          <p>
+            Desktop markdown editor with OpenAI integration. Like StackEdit, but offline and with text generation.
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block">#Markdown</span>
+          <span class="inline-block">#Python</span>
+          <span class="inline-block">#OpenAI</span>
+        </div>
+      </div>
+
+      <!-- CARD 5: GreenX Projects -->
+      <div class="max-w-sm shadow-lg">
+        <img src="/src/img/logo.jpeg" alt="GreenX" />
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/SPotes22/Django-EcoMarketPlace.git">Marketplace to API</a></div>
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/SPotes22/My_Flask_Universal_Api.git">Universal Flask API</a></div>
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/SPotes22/Evil_Api_GreenX.git">MITM API (for educational use)</a></div>
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/SPotes22/Crud_php_UniversalAPI.git">PHP CRUD to API</a></div>
+          <p>
+            Projects made for TIC certification purposes. The MITM tool is a PCI-DSS-safe sandbox for security exploration and simulations.
+          </p>
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/SPotes22/GreenHatsBackend">OpenAI + PHP Backend</a></div>
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/SPotes22/GreenHatsAtTalentoTech">Flask Web Frontend</a></div>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block">#Django</span>
+          <span class="inline-block">#Flask</span>
+          <span class="inline-block">#PHP</span>
+          <span class="inline-block">#OpenAI</span>
+          <span class="inline-block">#PostgreSQL</span>
+          <span class="inline-block">#MySQL</span>
+          <span class="inline-block">#Render</span>
+        </div>
+      </div>
+
+      <!-- CARD 6: NAS Server -->
+      <div class="max-w-sm shadow-lg">
+        <img src="/src/img/bd_wallpaper.png" alt="NAS" />
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><a href="https://github.com/SPotes22/MicroNAS-Flask">Shared Storage Server</a></div>
+          <p>
+            Personal shared storage server built with Flask + bcrypt. Host files via TCP (port 8000). Optimized on Chromebook.
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block">#Python</span>
+          <span class="inline-block">#NAS</span>
+          <span class="inline-block">#Flask</span>
+          <span class="inline-block">#bcrypt</span>
+        </div>
+      </div>
+    </div>
+
+    <h1 id="challenges">Challenges</h1>
+    <div class="px-8 py-6">
+      <ul>
+        <li>
+          <a href="https://github.com/ArachnePotes/training">Python Everyday</a>
+          <div class="w-full h-6 bg-gray-700 rounded-full">
+            <div class="h-6 bg-blue-600 text-xs font-medium text-center p-0.5 leading-none rounded-full" style="width: 89%">89%</div>
+          </div>
+        </li>
+        <li>
+          <a href="https://colab.research.google.com/drive/1Bldv69eC0VQESEOsrfQJPiuCmGqbKlm3?usp=sharing">Python Colab Notebook</a>
+          <div class="w-full h-6 bg-gray-700 rounded-full">
+            <div class="h-6 bg-blue-600 text-xs font-medium text-center p-0.5 leading-none rounded-full" style="width: 45%">45%</div>
+          </div>
+        </li>
+        <li>
+          <a href="https://github.com/ArachnePotes/AssitantPy">Desktop Assistant in Python</a>
+          <div class="w-full h-6 bg-gray-700 rounded-full">
+            <div class="h-6 bg-blue-600 text-xs font-medium text-center p-0.5 leading-none rounded-full" style="width: 20%">20%</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h1 id="contact">Contact Me</h1>
+    <div class="flex justify-center bg-zinc-900 py-4">
+      <form action="https://formsubmit.co/potesdev@gmail.com" method="POST" class="w-2/3">
+        <p>Name</p>
+        <input type="text" name="name" required />
+
+        <p>Email Address</p>
+        <input type="email" name="email" required />
+
+        <p>Message</p>
+        <textarea cols="90" rows="6" name="message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>Follow me on:</p>
+      <a href="https://x.com/Arachne292024">X.com</a> |
+      <a href="https://www.linkedin.com/in/potesdev">LinkedIn</a> |
+      <a href="https://github.com/SPotes22">GitHub</a>
+    </footer>
+  </body>
 </html>
