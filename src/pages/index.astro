@@ -1,121 +1,772 @@
 ---
-//import '../styles/global.css';
+// src/pages/index.astro
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Santiago Potes - Fullstack Developer Portfolio. Projects in Python, Django, Flask, APIs, Web Dev, and more." />
-    <meta name="keywords" content="Developer, Portfolio, Python, Django, Flask, Astro, APIs, Web Developer, Colombia" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Santiago Potes - Fullstack Developer Portfolio. Specialized in Python, Django, Flask, React, Web3, APIs, and modern web development solutions." />
+    <meta name="keywords" content="Santiago Potes, PotesDev, Fullstack Developer, Python Developer, Django, Flask, React, Web3, Blockchain, API Development, Colombia Developer, Software Engineer, Backend Developer, Frontend Developer, JavaScript, PostgreSQL, MySQL, OpenAI Integration, Crypto Dashboard, Assembly Compiler, CMS Development, Markdown Editor, NAS Server, TCP Server, Educational Technology, Pereira Developer, Risaralda Developer" />
     <meta name="author" content="Santiago Potes" />
-    <title>PotesDev | Fullstack Developer Portfolio</title>
-
-    <script>
-      function validateForm() {
-        const name = document.forms["contactForm"]["name"].value;
-        const email = document.forms["contactForm"]["email"].value;
-        const message = document.forms["contactForm"]["message"].value;
-        if (!name || !email || !message) {
-          alert("All fields are required.");
-          return false;
-        }
-        return true;
-      }
-    </script>
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="PotesDev | Santiago Potes - Fullstack Developer Portfolio" />
+    <meta property="og:description" content="Explore innovative projects in Python, Django, Flask, React, and Web3. From crypto dashboards to AI-integrated tools." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://potesdev.com" />
+    <meta property="og:image" content="/og-image.jpg" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PotesDev | Santiago Potes - Fullstack Developer" />
+    <meta name="twitter:description" content="Fullstack developer specializing in Python, Django, React, and Web3 solutions." />
+    <meta name="twitter:image" content="/twitter-image.jpg" />
+    
+    <title>PotesDev | Santiago Potes - Fullstack Developer Portfolio</title>
 
     <style>
-      /* (Estilos previos ya explicados, mantenidos) */
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #111;
-        color: #00ffcc;
+      /* Reset y variables CSS */
+      :root {
+        --primary-color: #00ffcc;
+        --secondary-color: #0099ff;
+        --bg-dark: #111;
+        --bg-card: #1a1a1a;
+        --bg-nav: #0d0d0d;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --accent-gradient: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+        --shadow: 0 10px 25px rgba(0, 255, 204, 0.1);
+        --border-radius: 12px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
       }
-      /* ... [el resto del CSS lo puedes pegar como antes] ... */
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Navegación mejorada */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(13, 13, 13, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      nav .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      nav .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gradient);
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Layout principal */
+      main {
+        margin-top: 80px;
+        padding: 2rem;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 4rem 0 6rem;
+        background: radial-gradient(circle at center, rgba(0, 255, 204, 0.1) 0%, transparent 70%);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.8;
+      }
+
+      /* Sección */
+      section {
+        margin-bottom: 6rem;
+      }
+
+      section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--primary-color);
+        position: relative;
+      }
+
+      section h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent-gradient);
+        border-radius: 2px;
+      }
+
+      /* Grid responsive mejorado */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      /* Cards de proyecto mejoradas */
+      .project-card {
+        background: var(--bg-card);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(0, 255, 204, 0.1);
+        position: relative;
+      }
+
+      .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--accent-gradient);
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 255, 204, 0.2);
+      }
+
+      .project-card:hover::before {
+        opacity: 1;
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .project-title a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .project-title a:hover {
+        color: var(--secondary-color);
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag {
+        background: rgba(0, 255, 204, 0.1);
+        color: var(--primary-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: 1px solid rgba(0, 255, 204, 0.2);
+        transition: var(--transition);
+      }
+
+      .tag:hover {
+        background: rgba(0, 255, 204, 0.2);
+        transform: translateY(-2px);
+      }
+
+      /* Challenges Section */
+      .challenges-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .challenge-item {
+        background: var(--bg-card);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(0, 255, 204, 0.1);
+        transition: var(--transition);
+      }
+
+      .challenge-item:hover {
+        border-color: rgba(0, 255, 204, 0.3);
+        transform: translateX(10px);
+      }
+
+      .challenge-item a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        margin-top: 0.8rem;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: var(--accent-gradient);
+        border-radius: 4px;
+        transition: width 1s ease-in-out;
+        position: relative;
+      }
+
+      .progress-fill::after {
+        content: attr(data-progress);
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: white;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: var(--bg-card);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(0, 255, 204, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(0, 255, 204, 0.2);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(0, 255, 204, 0.1);
+      }
+
+      .submit-btn {
+        background: var(--accent-gradient);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 100%;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 255, 204, 0.3);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--bg-nav);
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid rgba(0, 255, 204, 0.2);
+        margin-top: 4rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        nav .nav-links {
+          gap: 1rem;
+        }
+
+        main {
+          padding: 1rem;
+          margin-top: 120px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .hero {
+          padding: 2rem 0 4rem;
+        }
+
+        section {
+          margin-bottom: 4rem;
+        }
+
+        .social-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .project-card {
+          margin-bottom: 1rem;
+        }
+        
+        nav .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+
+      /* Animaciones de entrada */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .project-card {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+
+      .project-card:nth-child(2) { animation-delay: 0.1s; }
+      .project-card:nth-child(3) { animation-delay: 0.2s; }
+      .project-card:nth-child(4) { animation-delay: 0.3s; }
+      .project-card:nth-child(5) { animation-delay: 0.4s; }
+      .project-card:nth-child(6) { animation-delay: 0.5s; }
     </style>
   </head>
 
   <body>
     <nav>
-      <a href="/"><h2>PotesDev</h2></a>
-      <a href="#projects"><h2>Projects</h2></a>
-      <a href="#challenges"><h2>Challenges</h2></a>
-      <a href="#contact"><h2>Contact</h2></a>
+      <div class="logo">PotesDev</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
-    <section>
-      <h1>About</h1>
-      <p>
-        I'm Santiago Potes, a fullstack developer focused on building robust, practical and impactful tech solutions. I’ve developed crypto dashboards, compilers, file servers, and experimental AI tools. I enjoy understanding the internals of systems and combining automation, backend logic, and clean UIs to solve real-world problems.
-      </p>
-    </section>
+    <main>
+      <section class="hero" id="about">
+        <h1>Santiago Potes</h1>
+        <p>
+          Fullstack developer focused on building robust, practical and impactful tech solutions. 
+          I've developed crypto dashboards, compilers, file servers, and experimental AI tools. 
+          I enjoy understanding the internals of systems and combining automation, backend logic, 
+          and clean UIs to solve real-world problems.
+        </p>
+      </section>
 
-    <h1 id="projects">Projects</h1>
-    <div class="grid">
-      <!-- ✅ Ejemplo de 1 card consistente, enriquecido -->
-      <div class="max-w-sm shadow-lg">
-        <img src="/src/img/card-dao.png" alt="Ready Player DAO Dashboard Project Screenshot" />
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2"><a href="https://github.com/ArachnePotes/Ready-Player-Dao.git">Ready Player DAO</a></div>
-          <p>
-            A decentralized dashboard for Indexing.co that tracks selected cryptocurrencies in near real-time. I integrated Web3 APIs, React, and SQL, while handling async data fetching and UI rendering challenges.
-          </p>
-        </div>
-        <div class="px-6 pt-4 pb-2">
-          <span class="inline-block">#Blockchain</span>
-          <span class="inline-block">#React</span>
-          <span class="inline-block">#SQL</span>
-          <span class="inline-block">#Web3</span>
-          <span class="inline-block">#API</span>
-        </div>
-      </div>
-
-      <!-- 🔁 Repetir mismo patrón para el resto de los proyectos -->
-      <!-- ... -->
-
-      <!-- Puedes copiar y actualizar los otros cards manteniendo la misma estructura de descripción + retos + soluciones + tecnologías -->
-
-    </div>
-
-    <h1 id="challenges">Challenges</h1>
-    <div class="px-8 py-6">
-      <ul>
-        <li>
-          <a href="https://github.com/ArachnePotes/training">Python Everyday</a>
-          <p>A long-term commitment to coding daily. I built utilities, automation scripts and algorithm challenges in Python. Currently 89% complete.</p>
-          <div class="w-full h-6 bg-gray-700 rounded-full">
-            <div class="h-6 bg-blue-600 text-xs font-medium text-center p-0.5 leading-none rounded-full" style="width: 89%">89%</div>
+      <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+          
+          <div class="project-card">
+            <img src="/src/img/card-dao.png" alt="Ready Player DAO Dashboard - Crypto tracking interface" />
+            <div class="project-content">
+              <div class="project-title">
+                <a href="https://github.com/ArachnePotes/Ready-Player-Dao.git" target="_blank" rel="noopener noreferrer">
+                  Ready Player DAO
+                </a>
+              </div>
+              <p class="project-description">
+                A decentralized dashboard for Indexing.co that tracks selected cryptocurrencies in near real-time. 
+                I integrated Web3 APIs, React, and SQL, while handling async data fetching and UI rendering challenges.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Blockchain</span>
+                <span class="tag">React</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Web3</span>
+                <span class="tag">API</span>
+              </div>
+            </div>
           </div>
-        </li>
-        <!-- Otros challenges también mejorados -->
-      </ul>
-    </div>
 
-    <h1 id="contact">Contact Me</h1>
-    <div class="flex justify-center bg-zinc-900 py-4">
-      <form name="contactForm" action="https://formsubmit.co/potesdev@gmail.com" method="POST" onsubmit="return validateForm()" class="w-2/3">
-        <label for="name">Name</label>
-        <input id="name" type="text" name="name" required />
+          <div class="project-card">
+            <img src="/src/img/card-compiler.png" alt="Assembly to Binary Compiler - Code translation interface" />
+            <div class="project-content">
+              <div class="project-title">
+                <a href="https://github.com/ArachnePotes/AssamblyToBin" target="_blank" rel="noopener noreferrer">
+                  Assembly to Binary Compiler
+                </a>
+              </div>
+              <p class="project-description">
+                A mini compiler/interpreter for converting assembly language to binary code. 
+                One of my favorite college projects that deepened my understanding of low-level programming.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Assembly</span>
+                <span class="tag">Compiler</span>
+                <span class="tag">Interpreter</span>
+                <span class="tag">Python</span>
+                <span class="tag">Computer Science</span>
+              </div>
+            </div>
+          </div>
 
-        <label for="email">Email Address</label>
-        <input id="email" type="email" name="email" required />
+          <div class="project-card">
+            <img src="/src/img/card-web.png" alt="Django CMS - Content management system interface" />
+            <div class="project-content">
+              <div class="project-title">
+                <a href="https://github.com/ArachnePotes/Django" target="_blank" rel="noopener noreferrer">
+                  No-code Blog CMS
+                </a>
+              </div>
+              <p class="project-description">
+                A Django-based content management system for blogs. 
+                Administrators can update the entire website without touching code, providing a seamless content editing experience.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Django</span>
+                <span class="tag">CMS</span>
+                <span class="tag">Python</span>
+                <span class="tag">No-code</span>
+              </div>
+            </div>
+          </div>
 
-        <label for="message">Message</label>
-        <textarea id="message" cols="90" rows="6" name="message" required></textarea>
+          <div class="project-card">
+            <img src="/src/img/card-text.png" alt="Notipy Markdown Editor - Text editing with AI integration" />
+            <div class="project-content">
+              <div class="project-title">
+                <a href="https://github.com/ArachnePotes/notipy" target="_blank" rel="noopener noreferrer">
+                  Notipy - AI Markdown Editor
+                </a>
+              </div>
+              <p class="project-description">
+                Desktop markdown editor with OpenAI integration. 
+                Like StackEdit, but offline and with intelligent text generation capabilities for enhanced productivity.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Markdown</span>
+                <span class="tag">Python</span>
+                <span class="tag">OpenAI</span>
+                <span class="tag">Desktop App</span>
+              </div>
+            </div>
+          </div>
 
-        <button type="submit">Send</button>
-      </form>
-    </div>
+          <div class="project-card">
+            <img src="/src/img/logo.jpeg" alt="GreenX Projects Suite - Multiple development projects" />
+            <div class="project-content">
+              <div class="project-title">GreenX Project Suite</div>
+              <p class="project-description">
+                Collection of projects made for TIC certification: Marketplace APIs, Universal Flask API, 
+                educational MITM tools (PCI-DSS-safe sandbox), PHP CRUD systems, and OpenAI-integrated backends.
+              </p>
+              <div style="margin: 1rem 0; font-size: 0.9rem;">
+                <div><a href="https://github.com/SPotes22/Django-EcoMarketPlace.git" target="_blank" rel="noopener noreferrer">🔗 Marketplace to API</a></div>
+                <div><a href="https://github.com/SPotes22/My_Flask_Universal_Api.git" target="_blank" rel="noopener noreferrer">🔗 Universal Flask API</a></div>
+                <div><a href="https://github.com/SPotes22/Evil_Api_GreenX.git" target="_blank" rel="noopener noreferrer">🔗 Educational MITM API</a></div>
+                <div><a href="https://github.com/SPotes22/GreenHatsBackend" target="_blank" rel="noopener noreferrer">🔗 OpenAI + PHP Backend</a></div>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Django</span>
+                <span class="tag">Flask</span>
+                <span class="tag">PHP</span>
+                <span class="tag">OpenAI</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="/src/img/bd_wallpaper.png" alt="MicroNAS Server - Network storage solution" />
+            <div class="project-content">
+              <div class="project-title">
+                <a href="https://github.com/SPotes22/MicroNAS-Flask" target="_blank" rel="noopener noreferrer">
+                  MicroNAS - Shared Storage Server
+                </a>
+              </div>
+              <p class="project-description">
+                Personal shared storage server built with Flask and bcrypt security. 
+                Host files via TCP (port 8000) with optimized performance for Chromebook environments.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">NAS</span>
+                <span class="tag">Flask</span>
+                <span class="tag">bcrypt</span>
+                <span class="tag">TCP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="challenges">
+        <h2>Current Challenges</h2>
+        <div class="challenges-list">
+          <div class="challenge-item">
+            <a href="https://github.com/ArachnePotes/training" target="_blank" rel="noopener noreferrer">
+              Python Everyday - Daily Programming Practice
+            </a>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="89%" style="width: 89%"></div>
+            </div>
+          </div>
+
+          <div class="challenge-item">
+            <a href="https://colab.research.google.com/drive/1Bldv69eC0VQESEOsrfQJPiuCmGqbKlm3?usp=sharing" target="_blank" rel="noopener noreferrer">
+              Python Colab Notebook - Data Science Experiments
+            </a>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="45%" style="width: 45%"></div>
+            </div>
+          </div>
+
+          <div class="challenge-item">
+            <a href="https://github.com/ArachnePotes/AssitantPy" target="_blank" rel="noopener noreferrer">
+              Desktop Assistant in Python - Voice & AI Integration
+            </a>
+            <div class="progress-bar">
+              <div class="progress-fill" data-progress="20%" style="width: 20%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Get In Touch</h2>
+        <form action="https://formsubmit.co/potesdev@gmail.com" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or just say hello!"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </section>
+    </main>
 
     <footer>
-      <p>Follow me on:</p>
-      <a href="https://x.com/Arachne292024">X.com</a> |
-      <a href="https://www.linkedin.com/in/potesdev">LinkedIn</a> |
-      <a href="https://github.com/SPotes22">GitHub</a>
+      <p>Let's connect and build something amazing together</p>
+      <div class="social-links">
+        <a href="https://x.com/Arachne292024" target="_blank" rel="noopener noreferrer">X.com</a>
+        <a href="https://www.linkedin.com/in/potesdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/SPotes22" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
     </footer>
+
+    <script>
+      // Smooth scrolling para navegación
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Animación de barras de progreso cuando entran en viewport
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const progressFill = entry.target.querySelector('.progress-fill');
+            if (progressFill) {
+              progressFill.style.width = progressFill.getAttribute('data-progress');
+            }
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.challenge-item').forEach(item => {
+        progressObserver.observe(item);
+      });
+
+      // Navbar backdrop blur en scroll
+      window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 100) {
+          nav.style.background = 'rgba(13, 13, 13, 0.98)';
+        } else {
+          nav.style.background = 'rgba(13, 13, 13, 0.95)';
+        }
+      });
+    </script>
   </body>
 </html>
